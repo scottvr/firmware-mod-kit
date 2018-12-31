@@ -185,9 +185,8 @@ case ${FS_TYPE} in
 		;;
 	"linux")
 		echo "mounting Linux filesystem as $ROOTFS..."
-		mkdir ${ROOTFS} 
-		echo MKFS=${SUDO} mount ${FSIMG} ${ROOTFS} >> ${CONFLOG} 
-		${SUDO} mount ${FSIMG} ${ROOTFS} 2>/dev/null
+		${SUDO} ./unlinuxfs.sh "${FSIMG}" "${ROOTFS}" 2>/dev/null
+		echo "MKFS='./unlinux.sh'">> "${CONFLOG}" 
 		;;
 	"yaffs")
 		echo "Extracting YAFFS file system..."
